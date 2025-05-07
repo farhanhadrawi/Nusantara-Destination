@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="prifil.css">
+    <title>Pilih Profil</title>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <p class="l-desc">Get reliable and accurate travel information all on one site.</p> 
+            <img 
+                src="assets/sigup.png"
+                class="picture"
+            />
+        </div>
+        <div class="right-side">
+            <form>
+                <div class="link">
+                    <p>Already have an account? <a href="in.html">Sign In</a></p>
+                </div>
+                
+                <h3><strong>PROFILE</strong></h3>
+
+                <div class="text"><p>Upload a profile picture</p></div>
+
+                <div class="profile-section">
+
+                    <div class="profil-container">
+                        <label for="profileImageInput">
+                            <img src="default-image.jpg" class="selected-profile-image" alt="Selected Profile">
+                        </label>
+                        <input type="file" id="profileImageInput" accept="image/*">
+                    </div>
+
+                    <div class="icon-options">
+                        <p>Pilih ikon default:</p>
+                        <div class="icons">
+
+                            <label for="icon1">
+                                <img src="assets/woman.png" alt="Icon 1">
+                                <input type="radio" id="icon1" name="selectedIcon">
+                            </label>
+
+                            <label for="icon2">
+                                <img src="assets/man_formal.png" alt="Icon 2">
+                                <input type="radio" id="icon2" name="selectedIcon">
+                            </label>
+                            
+                        </div>
+                    </div>
+                </div>
+                <p> <input id="idklik" type="submit"  size="100%" value="Create Account"></p> 
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" type="text/css" href="in.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <p class="l-desc"></p> 
+            <img 
+                src="assets/signin.png"
+                class="right-pic"
+            />
+        </div>
+        <div class="right-side">
+            <form action="signin.php" method="post">
+                <div class="text">
+                    <p>Not a member yet? <a href="up.html">Sign Up</a></p>
+                </div>
+                <h3 class="title-form"><strong>SIGN IN</strong></h3>
+                <br>
+                <p> <label>Username</label><br>
+                    <input id="idusername" type="text" name="username" size="40%">
+                </p>
+                <p> <label>Password</label><br>
+                    <input id="idpassword" type="password" name="password" size="40%">
+                </p>
+                <p class="fpass"><a href="#">Forgot your password ?</a></p>
+                <p> <input id="idklik" type="submit"  size="100%" value="Get Started"></p> 
+            </form>
+        </div> 
+    </div>
+</body>
+</html>

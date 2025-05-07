@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="up.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <p class="l-desc"></p> 
+            <img 
+                src="assets/sigup.png"
+                class="picture"
+            />
+        </div>
+        <div class="right-side">
+            <form  method="post" onsubmit="return validateForm()">
+                <div class="text">
+                    <p>Already have an account? <a href="in.html">Sign In</a></p>
+                </div>
+                <h3 class="title-form"><strong>SIGN UP</strong></h3>
+                <br>
+                <br>
+                <p> <label>Nama</label><br>
+                    <input id="idusername" type="text" name="username" size="40%">
+                </p>
+
+                <p> <label>Tanggal lahir</label><br>
+                    <input id="idtanggallahir" type="date" name="tanggallahir" size="40%">
+                </p>
+
+                <p> <label>Email Address</label><br>
+                    <input id="idemail" type="email" name="email" size="40%">
+                </p>
+
+                <p> <label>Nomor HP</label><br>
+                    <input id="idhp" type="text" name="nohandphone" size="40%">
+                </p>
+
+                <p> <label>Password</label><br>
+                    <input id="idpassword" type="password" name="password" size="40%">
+                </p>
+
+                <p>
+                    <label>Jenis Kelamin</label>
+                    <p>
+                        <input type="radio" id="gender1" name="jenis-kelamin" value="laki-laki">
+                        <label for="gender1">Laki-laki</label>
+                        <input type="radio" id="gender2" name="jenis-kelamin" value="perempuan">
+                        <label for="gender2">Perempuan</label>
+                    </p>
+                </p>
+                <div id="notification"></div>
+                <p> <input id="idklik" type="submit"  size="100%" value="Sign Up"></p>
+            </form>
+        </div> 
+    </div>
+    <script>
+        function validateForm() {
+            // Validasi formulir
+            var username = document.getElementById("idusername").value;
+            var password = document.getElementById("idpassword").value;
+            var email = document.getElementById("idemail").value;
+            var tanggal_lahir = document.getElementById("idtanggallahir").value;
+            var no_handphone = document.getElementById("idhp").value;
+            var gender1 = document.getElementById("gender1").checked;
+            var gender2 = document.getElementById("gender2").checked;
+
+            if (username === "" || password === "" || email === "" || tanggal_lahir === "" || no_handphone === "" || (!gender1 && !gender2)) {
+                showNotification("Harap isi semua formulir.", false);
+                return false;
+            }
+
+            return true;
+        }
+
+        function showNotification(message, isSuccess) {
+            var notification = document.getElementById("notification");
+            notification.innerHTML = message;
+
+            if (isSuccess) {
+                notification.style.color = "green";
+            } else {
+                notification.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

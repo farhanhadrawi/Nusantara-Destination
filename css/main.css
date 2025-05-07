@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    height: 90px;
+    text-align: center; /* Pusatkan teks */
+    box-sizing: border-box;
+    z-index: 1;
+    display: flex; /* Gunakan flexbox untuk mengatur elemen-elemen menu */
+    align-items: center; /* Pusatkan elemen-elemen secara vertikal */
+    justify-content: flex-start; /* Letakkan elemen-elemen menu di sisi kiri dan kanan */
+  }
+  
+  nav div {
+    display: inline-block;
+    color: white;
+    margin: 0 30px;
+    cursor: pointer;
+  }
+  
+  nav .Akun img {
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  nav div a{
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  
+#search {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+#search-results {
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    z-index: 2;
+    color: black;
+    background-color: white;
+    border: 1px solid #ccc;
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.search-container {
+    position: relative;
+    display: inline-block;
+}
+
+.gambar1 {
+    margin-top: 20px;
+    margin-left: 40px;
+    
+}
+
+main {
+    text-align: justify;
+    display: flex; /* Menjadikan main sebagai flex container */
+    flex-direction: column; /* Menjadikan anak-anaknya tata letak kolom */
+    margin-left: 40px;
+    margin-right: 70px;
+}
+
+main h1 {
+    margin-top: 80px; /* Atur margin-top sesuai kebutuhan */
+  
+    
+}
+
+#one {
+    margin-top: 10px;
+    margin-left: 40px;
+}
+
+#map-container {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 56.25%; /* Untuk mengatur rasio aspek 16:9 */
+    height: 0;
+    margin-left: 40px;
+}
+
+#map {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+    
+}
+
+.submit-link {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none; 
+    color: #007bff; /* Warna teks tautan */
+    font-weight: 500; 
+}
+
+.submit-link button {
+    background-color: #5EA8FF;
+    border: none;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    justify-content: center;
+    border-radius: 8px;
+    font-weight: bolder;
+    color: black;
+    margin-left: 27%;
+    margin-top: -40px;
+
+}
+
