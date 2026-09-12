@@ -1,30 +1,65 @@
-<?php
-// Koneksi ke database
-$conn = new mysqli("localhost", "root", "", "user");
+<?php 
+// Koneksi ke database 
+$conn = new mysqli("localhost", "root", "", "user"); 
+ 
+// Periksa koneksi 
+if ($conn->connect_error) { 
+    die("Koneksi gagal: " . $conn->connect_error); 
+} 
+ 
+// Ambil data dari formulir 
+$username = $_POST['username'] ?? '';
+$password = $_POST['password'] ?? '';
+$email = $_POST['email'] ?? '';
+$tanggal_lahir = $_POST['tanggallahir'] ?? '';
+$no_handphone = $_POST['nohandphone'] ?? '';
+$jenis_kelamin = $_POST['jenis-kelamin'] ?? '';
 
-// Periksa koneksi
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
+// Periksa data wajib 
+if (
+    empty($username) ||
+    empty($password) ||
+    empty($email) ||
+    empty($tanggal_lahir) ||
+    empty($no_handphone) ||
+    empty($jenis_kelamin)
+) {
+    die("Semua data wajib diisi.");
 }
 
-// Ambil data dari formulir
-$username = $_POST['username'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash password untuk keamanan
-$email = $_POST['email'];
-$tanggal_lahir = $_POST['tanggallahir'];
-$no_handphone = $_POST['nohandphone'];
-$jenis_kelamin = $_POST['jenis-kelamin'];
+// Validasi format email
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    die("Format email tidak valid.");
+}
 
-// Query untuk menyimpan data ke database
-$sql = "INSERT INTO users (username, password, email, tanggal_lahir, no_handphone, jenis_kelamin) VALUES ('$username', '$password', '$email', '$tanggal_lahir', '$no_handphone', '$jenis_kelamin')";
+// Hash password
+$password = password_hash($password, PASSWORD_DEFAULT);
+
+// Gunakan prepared statement untuk mencegah SQL Injection
+$stmt = $conn->prepare(
+    "INSERT INTO users 
+    (username, password, email, tanggal_lahir, no_handphone, jenis_kelamin) 
+    VALUES (?, ?, ?, ?, ?, ?)"
+);
+
+$stmt->bind_param(
+    "ssssss",
+    $username,
+    $password,
+    $email,
+    $tanggal_lahir,
+    $no_handphone,
+    $jenis_kelamin
+);
 
 // Jalankan query
-if ($conn->query($sql) === TRUE) {
+if ($stmt->execute()) {
     echo "Pendaftaran berhasil!";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Pendaftaran gagal: " . $stmt->error;
 }
 
-// Tutup koneksi
+// Tutup statement dan koneksi
+$stmt->close();
 $conn->close();
 ?>
